@@ -1,0 +1,7 @@
+When I start a new Python project, I first create a dedicated project folder and create a virtual environment using `python -m venv venv`. I activate the environment so that the project uses its own Python interpreter and installed packages instead of relying on the system environment.
+
+Activation changes the `PATH` for that terminal session by putting the virtual environment's `Scripts` directory before the normal Python locations. Because of this, when I run `python`, the virtual environment's Python executable is found first. This keeps the project's dependencies isolated from other Python projects.
+
+After activating the environment, I install the required packages, such as `requests` and `rich`. I then run `python -m pip freeze > requirements.txt` to record the exact package versions. The versions are pinned so another developer can install the same dependency versions and reduce compatibility problems.
+
+I also initialize Git, create a `.gitignore` that excludes `venv/` and `__pycache__/`, and make an initial commit. One concrete problem virtual environments prevent is dependency conflicts—for example, one project may require an older version of a package while another requires a newer version. Each project can have its own isolated dependencies.
